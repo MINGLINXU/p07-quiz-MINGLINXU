@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             String logselect = lv.getItemAtPosition(position).toString();
-                            Log.d("Item Clicked" , logselect);
+                            Log.d("Item clicked" , logselect);
                             }
                         });
                         break;
