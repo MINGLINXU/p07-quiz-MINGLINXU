@@ -29,11 +29,48 @@ public class MainActivity extends AppCompatActivity {
 
         al = new ArrayList<>();
 
-
+        al.add("Apple");
+        al.add("Ball");
+        al.add("Cat");
 
 
         aa = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, al );
         lv.setAdapter(aa);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                switch (position){
+                    case 0:
+                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            String logselect = lv.getItemAtPosition(position).toString();
+                            Log.d("Item Clicked" , logselect);
+                            }
+                        });
+                        break;
+                    case 1:
+                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                String Itemselecte = lv.getItemAtPosition(position).toString();
+                                Toast.makeText(MainActivity.this,"Item Clicked: "+Itemselecte,Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+
+                }
+            }
+
+
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
 
